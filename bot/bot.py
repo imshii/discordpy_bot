@@ -5,21 +5,12 @@ from tokens import school_boy, ignis
 # CheckFailure
 from os import system, name, listdir
 
-from time import sleep
-
-
-client = commands.Bot(command_prefix='.')
-
-
-# , help_command=None
+client = commands.Bot(command_prefix='.', description="Felicita!")
 
 
 @client.event
 async def on_ready():
     print(f'\n{client.user.display_name} is now online\n')
-    # while True:
-    #     online_status()
-    #     sleep(5)
 
 
 @client.command()

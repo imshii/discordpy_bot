@@ -5,15 +5,13 @@ import requests
 import json
 import discord
 
-element_api = "http://10.0.0.44:8080"
+element_api = "http://10.0.0.44/elements"
 
 
 def requester(element):
     all_info = requests.get(element_api)
     dumped_info = json.loads(all_info.text)
     res = [i for i in dumped_info if i.get("name") == element]
-
-    # print(res[0].get("atomicMass"))
 
     try:
         dump = json.dumps(res[0], indent=4)
@@ -23,7 +21,6 @@ def requester(element):
 
 
 def calculator(Element):
-
 
     try:
         all_info = requests.get("http://10.0.0.44:8080")
