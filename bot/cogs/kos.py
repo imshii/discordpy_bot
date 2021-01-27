@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import requests
 import json
-from discord_bot_pit.bot.bot import reload
+from discordpy.bot.bot import reload
 
 list_players = []
 online_players = []
@@ -88,6 +88,7 @@ def list_players():
 
 
 class Kos(commands.Cog):
+
     def __init__(self, client):
         self.client = client
 

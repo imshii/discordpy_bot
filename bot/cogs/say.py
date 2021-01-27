@@ -17,15 +17,6 @@ class Talk(commands.Cog):
         await ctx.send(f'As per the great {ctx.author.display_name} has said, "{message}".')
 
     @commands.command()
-    async def spam(self, ctx, amount, *, message):
-        try:
-            for i in range(int(amount)):
-                await ctx.send(message)
-        except:
-            await ctx.send("Something went wrong!!")
-            await ctx.send(".spam *number* *text*")
-
-    @commands.command()
     async def alphabet(self, ctx):
         x = list(ascii_uppercase)
         for i in range(len(x)):
