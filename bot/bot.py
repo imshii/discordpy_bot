@@ -5,46 +5,60 @@ from tokens import school_boy, ignis
 # CheckFailure
 from os import system, name, listdir
 
+import discord
+
+
 client = commands.Bot(command_prefix='.', description="Felicita!")
 
 
 @client.event
 async def on_ready():
-    print(f'\n{client.user.display_name} is now online\n')
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Felicità"))
+  print(f'\n{client.user.display_name} is now online\n')
 
 
 @client.command()
 @has_permissions(administrator=True)
 async def load(ctx, extension):
-    client.load_extension(f'cogs.{extension}')
-    await ctx.send(f'{extension} was loaded') and print(f'{extension} was loaded')
+  client.load_extension(f'cogs.{extension}')
+  await ctx.send(f'{extension} was loaded') and print(f'{extension} was loaded')
 
 
 @client.command()
 @has_permissions(administrator=True)
 async def unload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
-    await ctx.send(f'{extension} was unloaded') and print(f'{extension} was unloaded')
+  client.unload_extension(f'cogs.{extension}')
+  await ctx.send(f'{extension} was unloaded') and print(f'{extension} was unloaded')
 
 
 @client.command()
 @has_permissions(administrator=True)
 async def reload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
-    client.load_extension(f'cogs.{extension}')
-    await ctx.send(f'{extension} was reloaded') and print(f'{extension} was reloaded')
+  client.unload_extension(f'cogs.{extension}')
+  client.load_extension(f'cogs.{extension}')
+  await ctx.send(f'{extension} was reloaded') and print(f'{extension} was reloaded')
 
 
 @client.command()
 @has_permissions(administrator=True)
 async def cls():
-    system('cls') if name == 'nt' else system('clear')
+  system('cls') if name=='nt' else system('clear')
 
 
 for filename in listdir('./cogs'):
-    if filename.endswith('.py'):
-        client.load_extension(f'cogs.{filename[:-3]}')
-        print(f'{filename} loaded')
+  if filename.endswith('.py'):
+    client.load_extension(f'cogs.{filename[:-3]}')
+    print(f'{filename} loaded')
+
+
+@client.event
+async def on_command_error(ctx, error):
+  if isinstance(error, commands.CommandNotFound):
+    await ctx.send("Command not found")
+  elif isinstance(error, commands.MissingPermissions):
+      await ctx.send("Nope, not happening.")
+  elif isinstance(error, commands.MissingRequiredArgument):
+    await ctx.send("ugh, be more specific")
 
 # ignis or school_boy
 client.run(ignis())

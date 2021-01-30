@@ -5,7 +5,8 @@ import requests
 import json
 import discord
 
-element_api = "http://10.0.0.44/elements"
+
+element_api = "http://10.0.0.46:88/elements"
 
 
 def requester(element):
@@ -23,7 +24,7 @@ def requester(element):
 def calculator(Element):
 
     try:
-        all_info = requests.get("http://10.0.0.44:8080")
+        all_info = requests.get(element_api)
         dumped_info = json.loads(all_info.text)
         res = []
         mm = float()
