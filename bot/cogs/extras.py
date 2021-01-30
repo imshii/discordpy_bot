@@ -40,7 +40,7 @@ class Extras(commands.Cog):
 
   @commands.command()
   async def kiera(self, ctx):
-    if ctx.author.id != "648700779003117578":
+    if ctx.author.id!="648700779003117578":
       await ctx.send(f"{str(ctx.author)[:-5]} {choice(Storage.equilizers)} kiera")
     else:
       await ctx.send("You are not worthy of that command! <:thor_hammer:804921376166641714>")
@@ -48,6 +48,10 @@ class Extras(commands.Cog):
   @commands.command(aliases=["yip", "Yip"])
   async def workout(self, ctx):
     await ctx.send(Storage.twerking_stickmen)
+
+  @commands.command(aliases=["poggers", "Pog"])
+  async def pog(self, ctx):
+    await ctx.send(Storage.poggers_kiss)
 
   @commands.command(aliases=["happyness", "happiness"])
   async def felicita(self, ctx):
@@ -75,6 +79,8 @@ class Storage:
   coins = ['https://user-images.githubusercontent.com/75594425/101301574-3e88a080-3807-11eb-867b-d70868125ff8.png',
            'https://user-images.githubusercontent.com/75594425/101301529-1c8f1e00-3807-11eb-962a-e76f2f81415d.png'
            ]
+
+  poggers_kiss = "https://tenor.com/view/poggers-anime-girls-kissing-pog-gif-18050577"
 
   equilizers = ["<", ">"]
 

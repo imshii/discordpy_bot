@@ -42,7 +42,7 @@ class Covid(commands.Cog):
     async def covid(self, ctx, location=''):
         if location == '':
             temp = world()
-            name = "globaly"
+            name = "globally"
         else:
             temp = country(location)
             name = f"in {location}"

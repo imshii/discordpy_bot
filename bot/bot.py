@@ -2,7 +2,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions
 from tokens import school_boy, ignis
 
-# CheckFailure
+# Clear terminal with ".cls"
 from os import system, name, listdir
 
 import discord
@@ -56,9 +56,10 @@ async def on_command_error(ctx, error):
   if isinstance(error, commands.CommandNotFound):
     await ctx.send("Command not found")
   elif isinstance(error, commands.MissingPermissions):
-      await ctx.send("Nope, not happening.")
+    await ctx.send("Nope, not happening.")
   elif isinstance(error, commands.MissingRequiredArgument):
     await ctx.send("ugh, be more specific")
+
 
 # ignis or school_boy
 client.run(ignis())
