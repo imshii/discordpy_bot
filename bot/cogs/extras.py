@@ -3,6 +3,7 @@ from random import choice
 from random import randint
 
 import discord
+import requests
 
 
 class Extras(commands.Cog):
@@ -39,6 +40,14 @@ class Extras(commands.Cog):
     await ctx.send(choice(Storage.coins))
 
   @commands.command()
+  async def bibre(self, ctx):
+    await ctx.send(requests.get(Storage.bibre_link).text)
+
+  @commands.command()
+  async def vroom(self, ctx):
+    await ctx.send(Storage.mustang_brrr)
+
+  @commands.command()
   async def kiera(self, ctx):
     if ctx.author.id!="648700779003117578":
       await ctx.send(f"{str(ctx.author)[:-5]} {choice(Storage.equilizers)} kiera")
@@ -52,6 +61,11 @@ class Extras(commands.Cog):
   @commands.command(aliases=["poggers", "Pog"])
   async def pog(self, ctx):
     await ctx.send(Storage.poggers_kiss)
+
+  @commands.command()
+  async def fbi(self, ctx):
+    await ctx.message.delete()
+    await ctx.send("Fbi tracking that btw ^")
 
   @commands.command(aliases=["happyness", "happiness"])
   async def felicita(self, ctx):
@@ -84,7 +98,12 @@ class Storage:
 
   equilizers = ["<", ">"]
 
+  mustang_brrr = "https://images-ext-1.discordapp.net/external/JqMrmxPfMjAVO8D0t2O17EBJMcIuxHj1V3kw5N3zHvk/https/" \
+                 "media.discordapp.net/attachments/782103157546287124/803321887161319504/voinea.gif"
+
   twerking_stickmen = "https://tenor.com/view/butts-booty-pop-booty-bump-twerk-ass-shake-gif-5592141"
+
+  bibre_link = "https://pastebin.com/raw/zX6zjTb5"
 
   felicita_lyrics = """Felicità
 È tenersi per mano andare lontano, la felicità

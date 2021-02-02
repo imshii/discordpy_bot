@@ -1,7 +1,4 @@
-import discord
 from discord.ext import commands
-from discord.ext.commands import has_permissions
-from discord.ext.commands import MissingPermissions
 
 
 class Purge(commands.Cog):
@@ -13,7 +10,7 @@ class Purge(commands.Cog):
     pass
 
   @commands.command()
-  @has_permissions(manage_messages=True)
+  @commands.has_permissions(administrator=True)
   async def purge(self, ctx, number=0):
     await ctx.channel.purge(limit=number + 1)
 

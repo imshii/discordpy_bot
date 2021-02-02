@@ -8,12 +8,14 @@ from os import system, name, listdir
 import discord
 
 
-client = commands.Bot(command_prefix='.', description="Felicita!")
+client = commands.Bot(command_prefix='.', description="Felicità!")
 
 
 @client.event
 async def on_ready():
-  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Felicità"))
+  await client.change_presence(activity=discord.Activity(
+    type=discord.ActivityType.listening, name="Felicità")
+  )
   print(f'\n{client.user.display_name} is now online\n')
 
 
@@ -51,6 +53,7 @@ for filename in listdir('./cogs'):
     print(f'{filename} loaded')
 
 
+#  Suppresses errors related to those mentioned, and informing the user what went wrong
 @client.event
 async def on_command_error(ctx, error):
   if isinstance(error, commands.CommandNotFound):
@@ -61,5 +64,5 @@ async def on_command_error(ctx, error):
     await ctx.send("ugh, be more specific")
 
 
-# ignis or school_boy
+# You can add your token as a string, just replace the current function
 client.run(ignis())
