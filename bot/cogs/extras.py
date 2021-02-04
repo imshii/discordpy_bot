@@ -1,6 +1,8 @@
 from discord.ext import commands
 from random import choice
 from random import randint
+from time import strftime
+from time import perf_counter
 
 import discord
 import requests
@@ -16,24 +18,38 @@ class Extras(commands.Cog):
     pass
 
   @commands.command()
-  async def eight(self, ctx):
-    await ctx.send(choice(Storage.eight_list))
-
-  @commands.command(aliases=["pp"])
-  async def penis(self, ctx):
-    await ctx.send('```' + str(randint(0, 10) * '=' + '>' + '```'))
-
-  @commands.command()
-  async def say(self, ctx, *, message):
-    await ctx.send(f'As per the great {ctx.author.display_name} has said, "{message}".')
-
-  @commands.command()
   async def ping(self, ctx):
-    await ctx.send('Pong! :ping_pong:')
+    start = perf_counter()
+    await ctx.message.delete()
+    stop = perf_counter()
+    ping = round((stop - start) * 1000, None)
+    embed = discord.Embed(colour=discord.Colour.red())
+    embed.add_field(name="Pong! :ping_pong:", value=str(ping) + " ms", inline=True)
+    embed.set_footer(text=f"Requested by {ctx.author.name}", icon_url=ctx.author.avatar_url)
+    await ctx.send(embed=embed)
 
   @commands.command()
   async def pong(self, ctx):
     await ctx.send('Ping! :ping_pong:')
+
+  @commands.command()
+  async def eight(self, ctx):
+    await ctx.send(choice(Storage.eight_list))
+
+  @commands.command(aliases=["pp", "penis"])
+  async def size(self, ctx):
+    await ctx.send('```' + str(randint(0, 10) * '=' + '>' + '```'))
+
+  @commands.command()
+  async def time(self, ctx):
+    embed = discord.Embed(colour=discord.Color.dark_blue())
+    embed.add_field(name=strftime("%A %h %d, %Y"), value=strftime("%l:%M:%I %p"))
+    embed.set_footer(text=f"Time requested by {ctx.author.name}", icon_url=ctx.author.avatar_url)
+    await ctx.send(embed=embed)
+
+  @commands.command()
+  async def say(self, ctx, *, message):
+    await ctx.send(f'As per the great {ctx.author.display_name} has said, "{message}".')
 
   @commands.command(aliases=["coin"])
   async def toss(self, ctx):
@@ -42,6 +58,10 @@ class Extras(commands.Cog):
   @commands.command(aliases=["drip"])
   async def vas(self, ctx):
     await ctx.send(choice(Storage.vas_list))
+
+  @commands.command(aliases=["creator"])
+  async def author(self, ctx):
+    await ctx.send(Storage.author_ascii)
 
   @commands.command()
   async def bibre(self, ctx):
@@ -54,7 +74,7 @@ class Extras(commands.Cog):
   @commands.command()
   async def kiera(self, ctx):
     if ctx.author.id!="648700779003117578":
-      await ctx.send(f"{str(ctx.author)[:-5]} {choice(Storage.equilizers)} kiera")
+      await ctx.send(f"{ctx.author.name} {choice(Storage.equilizers)} kiera")
     else:
       await ctx.send("You are not worthy of that command! <:thor_hammer:804921376166641714>")
 
@@ -141,3 +161,5 @@ Come un sorriso che sa di felicità
 Felicità
 È una sera a sorpresa la luna accesa e la radio che va
 È… """
+  author_ascii = """Kinda broken atm lol discord is annoying
+  """

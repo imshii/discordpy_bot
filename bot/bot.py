@@ -14,8 +14,7 @@ client = commands.Bot(command_prefix='.', description="Felicità!")
 @client.event
 async def on_ready():
   await client.change_presence(activity=discord.Activity(
-    type=discord.ActivityType.listening, name="Felicità")
-  )
+    type=discord.ActivityType.listening, name="Felicità"))
   print(f'\n{client.user.display_name} is now online\n')
 
 
@@ -62,7 +61,9 @@ async def on_command_error(ctx, error):
     await ctx.send("Nope, not happening.")
   elif isinstance(error, commands.MissingRequiredArgument):
     await ctx.send("ugh, be more specific")
+  else:
+    print(error)
 
 
 # You can add your token as a string, just replace the current function
-client.run(school_boy())
+client.run(ignis())
