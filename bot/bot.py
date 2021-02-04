@@ -53,17 +53,17 @@ for filename in listdir('./cogs'):
 
 
 #  Suppresses errors related to those mentioned, and informing the user what went wrong
-@client.event
-async def on_command_error(ctx, error):
-  if isinstance(error, commands.CommandNotFound):
-    await ctx.send("Command not found")
-  elif isinstance(error, commands.MissingPermissions):
-    await ctx.send("Nope, not happening.")
-  elif isinstance(error, commands.MissingRequiredArgument):
-    await ctx.send("ugh, be more specific")
-  else:
-    print(error)
+# @client.event
+# async def on_command_error(ctx, error):
+#   if isinstance(error, commands.CommandNotFound):
+#     await ctx.send("Command not found")
+#   elif isinstance(error, commands.MissingPermissions):
+#     await ctx.send("Nope, not happening.")
+#   elif isinstance(error, commands.MissingRequiredArgument):
+#     await ctx.send("ugh, be more specific")
+#   else:
+#     print(error)
 
 
 # You can add your token as a string, just replace the current function
-client.run(ignis())
+client.run(school_boy())
