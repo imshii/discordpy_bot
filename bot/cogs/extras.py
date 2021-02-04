@@ -39,6 +39,10 @@ class Extras(commands.Cog):
   async def toss(self, ctx):
     await ctx.send(choice(Storage.coins))
 
+  @commands.command(aliases=["drip"])
+  async def vas(self, ctx):
+    await ctx.send(choice(Storage.vas_list))
+
   @commands.command()
   async def bibre(self, ctx):
     await ctx.send(requests.get(Storage.bibre_link).text)
@@ -61,6 +65,10 @@ class Extras(commands.Cog):
   @commands.command(aliases=["poggers", "Pog"])
   async def pog(self, ctx):
     await ctx.send(Storage.poggers_kiss)
+
+  @commands.command(aliases=["...", "dog"])
+  async def quokka(self, ctx):
+    await ctx.send(choice(Storage.quokka))
 
   @commands.command()
   async def fbi(self, ctx):
@@ -94,6 +102,8 @@ class Storage:
            'https://user-images.githubusercontent.com/75594425/101301529-1c8f1e00-3807-11eb-962a-e76f2f81415d.png'
            ]
 
+  quokka = ["https://media.discordapp.net/attachments/763837055163170856/806175155285131264/badass.png", "https://media.discordapp.net/attachments/763837055163170856/806175166706745414/65165a16d5a1dad.png", "https://media.discordapp.net/attachments/763837055163170856/806175174898089994/someone-is-ready-for-winter.png", "https://media.discordapp.net/attachments/763837055163170856/806175414325870642/image1.png", "https://media.discordapp.net/attachments/763837055163170856/806175426405466182/quokka-smiling-for-the-camera-at-sunset.png", "https://media.discordapp.net/attachments/763837055163170856/806175438262108180/12aff3d9d27de3663568eecfd8b778f0.png", "https://media.discordapp.net/attachments/763837055163170856/806175446583476254/quokka-leaf-smile-cute.png"]
+
   poggers_kiss = "https://tenor.com/view/poggers-anime-girls-kissing-pog-gif-18050577"
 
   equilizers = ["<", ">"]
@@ -104,6 +114,8 @@ class Storage:
   twerking_stickmen = "https://tenor.com/view/butts-booty-pop-booty-bump-twerk-ass-shake-gif-5592141"
 
   bibre_link = "https://pastebin.com/raw/zX6zjTb5"
+
+  vas_list = ["https://media.discordapp.net/attachments/782103157546287124/806746845690593290/image0.jpg", "https://media.discordapp.net/attachments/782103157546287124/806744561899798528/unknown.png", "https://media.discordapp.net/attachments/782103157546287124/806743460626825226/unknown.png", "https://media.discordapp.net/attachments/782103157546287124/806740948465745951/unknown.png", "https://media.discordapp.net/attachments/782103157546287124/806739794411520000/unknown.png", "https://media.discordapp.net/attachments/782103157546287124/806736829621207090/unknown.png", "https://media.discordapp.net/attachments/782103157546287124/806731652452974602/146879139_735015937154224_9012277692766871897_n.png"]
 
   felicita_lyrics = """Felicità
 È tenersi per mano andare lontano, la felicità

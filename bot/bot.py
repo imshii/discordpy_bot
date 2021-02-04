@@ -65,4 +65,4 @@ async def on_command_error(ctx, error):
 
 
 # You can add your token as a string, just replace the current function
-client.run(ignis())
+client.run(school_boy())
