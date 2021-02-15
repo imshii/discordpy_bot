@@ -86,7 +86,7 @@ class Extras(commands.Cog):
   async def pog(self, ctx):
     await ctx.send(Storage.poggers_kiss)
 
-  @commands.command(aliases=["...", "dog"])
+  @commands.command(aliases=["...", "dog", ".."])
   async def quokka(self, ctx):
     await ctx.send(choice(Storage.quokka))
 

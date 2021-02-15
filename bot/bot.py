@@ -52,6 +52,10 @@ for filename in listdir('./cogs'):
     print(f'{filename} loaded')
 
 
+def missing_import(ctx, imported):
+  ctx.send("Sorry, this command will not work because the host is missing the import {}".format(imported))
+
+
 #  Suppresses errors related to those mentioned, and informing the user what went wrong
 @client.event
 async def on_command_error(ctx, error):
@@ -66,4 +70,4 @@ async def on_command_error(ctx, error):
 
 
 # You can add your token as a string, just replace the current function
-client.run(school_boy())
+client.run(ignis())
