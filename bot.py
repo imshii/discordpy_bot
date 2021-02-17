@@ -53,7 +53,7 @@ for filename in listdir('./cogs'):
 
 
 def missing_import(ctx, imported):
-  ctx.send("Sorry, this command will not work because the host is missing the import {}".format(imported))
+  ctx.send("Sorry, this command will not work because the host is missing the import: \n {}".format(imported))
 
 
 #  Suppresses errors related to those mentioned, and informing the user what went wrong
@@ -68,7 +68,8 @@ def missing_import(ctx, imported):
 #   else:
 #     print(error)
 
-json_tokens = getreq("http://10.0.0.40/discord").json()
+
 # You can add your token as a string, just replace the current function
 # school_boy || ignis
-client.run(json_tokens.get("school_boy"))
+json_tokens = getreq("http://10.0.0.40/discord").json()  # gets my tokens off a local server
+client.run(json_tokens.get("ignis"))

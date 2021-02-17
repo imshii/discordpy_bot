@@ -5,12 +5,11 @@ from cogs.maths import ciel
 
 import asyncio
 
-
 import discord
 
 
-def splitter(string) -> list:
-  if len(string) <= 1999:
+def splitter(string):
+  if len(string) < 2000:
     return string
   length = len(string)
   num_messages = round(ciel(length / 1900))
@@ -55,9 +54,11 @@ class Confidential(commands.Cog):
     output = check_output(command.split(" ")).decode("utf-8")
 
     try:
-      [await ctx.send("{}\n{}\n{}".format("```", i, "```")) for i in splitter(output)]
-    except Exception as e:
-      await ctx.send(e)
+      new_output = splitter(output)
+      await ctx.send("{}\n{}\n{}".format("```", new_output, "```")) if type(new_output) is str else [
+        await ctx.send("{}\n{}\n{}".format("```", i, "```")) for i in new_output]
+    except Exception as error:
+      await ctx.send(error)
 
 
 def setup(client):
