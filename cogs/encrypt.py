@@ -7,7 +7,7 @@ import json
 def custom(message):
   message_list = list(message.replace(" ", "|"))
   allowed = ''.join(ascii_uppercase + ascii_lowercase + digits + ",.?!*@#$%^&(){}:;</>\\|")
-  file = open("encrypt", "r")
+  file = open("ext/encrypt", "r")
   file_data = file.read()
   dumped_data = json.loads(file_data)
   for char in message_list:
@@ -20,7 +20,7 @@ def custom(message):
 
 
 def decrypt(key):
-  file = open("encrypt", "r").read()
+  file = open("ext/encrypt", "r").read()
   dump = json.loads(file)
   num = len(key) // 4
   i = 4

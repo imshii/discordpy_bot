@@ -2,7 +2,7 @@ from discord.ext import commands
 from random import randint, choice
 
 
-with open('beef.txt') as menacing_messages:
+with open('ext/beef.txt') as menacing_messages:
   beef_list = [line.rstrip() for line in menacing_messages]
 
 

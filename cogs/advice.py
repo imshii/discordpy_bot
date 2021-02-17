@@ -10,10 +10,10 @@ people_list = ['648700779003117578', '763779299354083369', '309463352885641227',
                '453653348315430944', '670782523462385666', '785184215263346699', '342738876760195072',
                '769017813956296735', '801900716557205565']
 
-with open('pickup lines.txt') as f:
+with open('ext/pickup lines.txt') as f:
     pickup_line = [str(line.rstrip()) for line in f]
 
-with open('facts.txt') as fact:
+with open('ext/facts.txt') as fact:
     fact_list = [str(lines.rstrip()) for lines in fact]
 
 

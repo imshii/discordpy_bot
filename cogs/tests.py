@@ -14,7 +14,7 @@ class Tests(commands.Cog):
 
   @commands.command(aliases=["Test", "tests", "quiz"])
   async def test(self, ctx, solution="", test="", *, time="Unspecified"):
-    file = open("tests.json", "r")
+    file = open("ext/tests.json", "r")
 
     try:
       json_file = json.loads(file.read())
@@ -54,7 +54,7 @@ class Tests(commands.Cog):
     file.close()
     json_dumped = json.dumps(json_file, indent=2)  # turning it into a string to write to the file
     print(json_dumped)
-    writable_file = open("tests.json", "w")
+    writable_file = open("ext/tests.json", "w")
     writable_file.write(json_dumped)  # overwriting current data in the file with new json list
     writable_file.close()
 
