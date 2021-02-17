@@ -1,4 +1,4 @@
-Discord bot made by imshy
+Discord bot made by imshy, thanks for supporting this :)
 
 needed libraries:
     discord.py
@@ -6,3 +6,4 @@ needed libraries:
     requests
     lxml
     bs4
+    
