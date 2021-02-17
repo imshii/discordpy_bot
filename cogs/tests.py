@@ -12,8 +12,8 @@ class Tests(commands.Cog):
   async def on_ready(self):
     pass
 
-  @commands.command(aliases=["test", "Test", "tests", "quiz"])
-  async def computing(self, ctx, solution="", test="", *, time="Unspecified"):
+  @commands.command(aliases=["Test", "tests", "quiz"])
+  async def test(self, ctx, solution="", test="", *, time="Unspecified"):
     file = open("tests.json", "r")
 
     try:
