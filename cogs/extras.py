@@ -1,8 +1,6 @@
 from discord.ext import commands
-from random import choice
-from random import randint
-from time import strftime
-from time import perf_counter
+from random import choice, randint
+from time import strftime, perf_counter
 
 import discord
 import requests
@@ -29,8 +27,75 @@ class Extras(commands.Cog):
     await ctx.send(embed=embed)
 
   @commands.command()
+  async def invite(self, ctx):
+    await ctx.send('```Administrator invite: https://discord.com/api/oauth2/'
+                   'authorize?client_id=785192185796231188&permissions=8&scope=bot'
+                   '\n'
+                   'No permissions invite: https://discord.com/api/oauth2/'
+                   'authorize?client_id=785192185796231188&permissions=0&scope=bot```')
+
+  @commands.command()
+  async def strati(self, ctx):
+    await ctx.send(
+      'https://media.discordapp.net/attachments/782103157546287124/'
+      '785596636269117535/egg3.PNG?width=1090&height=683')
+
+  @commands.command()
+  async def stef(self, ctx):
+    await ctx.send('https://media.discordapp.net/attachments/782103157546287124/'
+                   '785171862761373696/image0.jpg?width=263&height=468')
+
+  @commands.command()
+  async def clean(self, ctx):
+    await ctx.send(
+      'https://media.discordapp.net/attachments/760678854334611461/'
+      '771198231219666954/Mr.Clean.PNG?width=400&height=193')
+
+  @commands.command()
+  async def damato(self, ctx):
+    await ctx.send(choice(Storage.damato_list))
+
+  @commands.command()
+  async def kien(self, ctx):
+    await ctx.send(
+      'https://media.discordapp.net/attachments/760678854334611461/'
+      '778794093223870504/ahmad-customer-service_-_Discord_2020-11-18_8_22_51_PM_2.png')
+
+  @commands.command()
+  async def rockets(self, ctx):
+    await ctx.send('https://media.discordapp.net/attachments/760678854334611461/765707585781104672/imageh0.png')
+
+  @commands.command()
+  async def nasa(self, ctx):
+    await ctx.send(
+      'https://media.discordapp.net/attachments/760678854334611461/'
+      '778451995798274048/unknown.png?width=1010&height=701')
+
+  @commands.command()
+  async def gang(self, ctx):
+    await ctx.send('https://media.discordapp.net/attachments/760678854334611461/778722611629654026/unknown.png')
+
+  @commands.command()
+  async def obama(self, ctx):
+    await ctx.send(
+      'https://images-ext-2.discordapp.net/external/vvBzIMXepxOCrsRm_DxdiC_RrUnPXIwo3JM2ppSQhSA/'
+      'https/media.discordapp.net/attachments/473658772099694612/783903546520371250/bomabomb.gif')
+
+  @commands.command()
+  async def teacher(self, ctx):
+    await ctx.send('<@453653348315430944> or <@769007607809572886> **WE NEED HELP OMG PLEASE HELP**')
+
+  @commands.command()
+  async def damiano(self, ctx):
+    await ctx.send('https://tenor.com/view/persongee-morphs-morphing-melting-faces-gif-8217558')
+
+  @commands.command()
   async def pong(self, ctx):
     await ctx.send('Ping! :ping_pong:')
+
+  @commands.command(aliases=["..", "..."])
+  async def vic(self, ctx):
+    await ctx.send(choice(Storage.vic_list))
 
   @commands.command()
   async def eight(self, ctx):
@@ -86,7 +151,7 @@ class Extras(commands.Cog):
   async def pog(self, ctx):
     await ctx.send(Storage.poggers_kiss)
 
-  @commands.command(aliases=["...", "dog", ".."])
+  @commands.command(aliases=["dog"])
   async def quokka(self, ctx):
     await ctx.send(choice(Storage.quokka))
 
@@ -130,6 +195,27 @@ class Storage:
             "https://media.discordapp.net/attachments/763837055163170856/806175438262108180/12aff3d9d27de3663568eecfd8b778f0.png",
             "https://media.discordapp.net/attachments/763837055163170856/806175446583476254/quokka-leaf-smile-cute.png"]
 
+  vic_list = [
+    "https://cdn.discordapp.com/attachments/782103157546287124/814139025278500904/2011_ford_crown_victoria-pic-1139495547192806221-1024x768.png",
+    "https://cdn.discordapp.com/attachments/782103157546287124/814138928075374592/424x-.png",
+    "https://cdn.discordapp.com/attachments/782103157546287124/814138823046725652/8c9ba8e56e852b4029b873f3912e79f6.png",
+    "https://cdn.discordapp.com/attachments/782103157546287124/814138712249597993/1955-ford-fairlane-crown-victoria-front.png",
+    "https://cdn.discordapp.com/attachments/782103157546287124/814138667391385601/1955_Ford_Crown_Victoria_2.png",
+    "https://cdn.discordapp.com/attachments/782103157546287124/814138302981472264/unknown.png",
+    "https://cdn.discordapp.com/attachments/782103157546287124/814138253384613918/unknown.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138706918768650/images.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138637360431164/images.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138611674120252/images.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138551196581898/images.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138551196581898/images.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138528673169468/images.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138515230687272/2Q.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138476353552454/9k.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138449074061371/Z.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138433790279730/2Q.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138411547361341/Z.png",
+    "https://cdn.discordapp.com/attachments/805111959724490782/814138382472970260/Ford_Crown_Victoria_LX.png"]
+
   poggers_kiss = "https://tenor.com/view/poggers-anime-girls-kissing-pog-gif-18050577"
 
   equilizers = ["<", ">"]
@@ -148,6 +234,12 @@ class Storage:
               "https://media.discordapp.net/attachments/782103157546287124/806739794411520000/unknown.png",
               "https://media.discordapp.net/attachments/782103157546287124/806736829621207090/unknown.png",
               "https://media.discordapp.net/attachments/782103157546287124/806731652452974602/146879139_735015937154224_9012277692766871897_n.png"]
+
+  damato_list = [
+    'https://media.discordapp.net/attachments/763837055163170856/'
+    '786247443213582396/20201120_230436.jpg?width=177&height=383',
+    'https://media.discordapp.net/attachments/760678854334611461/778721257713303612/unknown.png'
+  ]
 
   felicita_lyrics = """Felicità
 È tenersi per mano andare lontano, la felicità
