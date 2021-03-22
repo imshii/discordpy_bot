@@ -1,6 +1,32 @@
 from discord.ext import commands
 
 
+"""
+# SQUARE ROOT
+This is the coolest trick ever, let me explain.
+Create an object that is equal to the half the number's value, here I named it square_root
+Then a temporary number equivalent to zero.
+Now while both numbers are not the same:
+  The temp number is equal to the temp number,
+  The square_root is equal to the original number divided by the temp number plus the temp number, all divided by 2.
+The loop ends when the temporary number is equivalent to the square_root, making it the square root
+Feel free to try this out on a calculator
+
+Example:
+number = 9
+###FIRST LOOP
+square_root = temp = 4.5
+  square_root = (9 / 4.5 + 4.5) / 2
+  square_root = 3.25
+###SECOND LOOP
+square_root = temp = 3.25
+  square_root = (9 / 3.25 + 3.25) / 2
+  square_root = 3.009
+
+### THIS IS REPEATED UNTIL EVERY NUMBER BEFORE THE NINTH DECIMAL IS THE SAME
+"""
+
+
 def sqrt(number) -> float:
   square_root = number / 2
   temp = 0
@@ -11,26 +37,14 @@ def sqrt(number) -> float:
   return square_root
 
 
-def floor(integer) -> float:  # remove decimals
-  decimals = integer % 1
-  print(decimals)
-  if decimals > 0:
-    return integer - decimals
-  return integer
+# round the number down, no matter the decimal
+def floor(integer) -> int:
+  return int(integer - (integer % 1))
 
 
-def floor(integer) -> float:  # remove decimals
-  decimals = integer % 1
-  if decimals > 0:
-    return integer - decimals
-  return integer
-
-
+# rounds up the number, no matter the decimal
 def ciel(integer):
-  decimals = integer % 1
-  if decimals > 0:
-    integer += -decimals + 1
-  return integer
+  return integer + (1 - integer % 1)
 
 
 def abv(integer) -> float:  # absolute value

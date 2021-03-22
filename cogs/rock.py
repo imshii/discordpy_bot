@@ -5,19 +5,19 @@ from random import randint
 
 def rocky():
   rock_list = ['I got paper :roll_of_paper:,yYou lost :)', 'I got scissors :scissors:, you win :C',
-               'Damn we both got rock :rock:, reroll?']
+               'Damn we both got rock :rock:, re-roll?']
   return rock_list[randint(0, 2)]
 
 
 def papery():
   paper_list = ['I got rock :rock:, you win :C', 'I got scissors :scissors:, you lost :)',
-                'Damn we both got paper :roll_of_paper:, reroll?']
+                'Damn we both got paper :roll_of_paper:, re-roll?']
   return paper_list[randint(0, 2)]
 
 
 def scissors():
   scissors_list = ['I got paper :roll_of_paper:, you win :C', 'I got rock :rock: you lost :)',
-                   'Damn we both got scissors :scissors:, reroll?']
+                   'Damn we both got scissors :scissors:, re-roll?']
   return scissors_list[randint(0, 2)]
 
 

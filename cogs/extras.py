@@ -93,7 +93,7 @@ class Extras(commands.Cog):
   async def pong(self, ctx):
     await ctx.send('Ping! :ping_pong:')
 
-  @commands.command(aliases=["..", "..."])
+  @commands.command(aliases=[".."])
   async def vic(self, ctx):
     await ctx.send(choice(Storage.vic_list))
 
@@ -151,7 +151,7 @@ class Extras(commands.Cog):
   async def pog(self, ctx):
     await ctx.send(Storage.poggers_kiss)
 
-  @commands.command(aliases=["dog"])
+  @commands.command(aliases=["dog", "...", "."])
   async def quokka(self, ctx):
     await ctx.send(choice(Storage.quokka))
 
@@ -163,6 +163,10 @@ class Extras(commands.Cog):
   @commands.command(aliases=["happyness", "happiness"])
   async def felicita(self, ctx):
     await ctx.send(Storage.felicita_lyrics)
+
+  @commands.command()
+  async def yellow(self, ctx):
+    await ctx.send("Lol bad colour")
 
 
 def setup(client):

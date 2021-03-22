@@ -4,6 +4,8 @@ from discord.ext.commands import has_permissions
 # Clear terminal with ".cls"
 from os import system, name, listdir
 from requests import get as getreq
+import threading
+import concurrent.futures
 
 import discord
 
@@ -72,4 +74,4 @@ def missing_import(ctx, imported):
 # You can add your token as a string, just replace the current function
 # school_boy || ignis
 json_tokens = getreq("http://10.0.0.40/discord").json()  # gets my tokens off a local server
-client.run(json_tokens.get("ignis"))
+client.run(json_tokens.get("school_boy"))

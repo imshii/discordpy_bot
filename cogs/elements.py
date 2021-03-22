@@ -6,19 +6,24 @@ import json
 import discord
 
 
-element_api = "http://10.0.0.46:88/elements"
+# Local server hosting it, you should delete this file if hosting off of your machine
+element_api = "http://10.0.0.40/elements"
 
 
 def requester(element):
   all_info = requests.get(element_api)
   dumped_info = json.loads(all_info.text)
-  res = [i for i in dumped_info if i.get("name")==element]
+  element_data = [i for i in dumped_info if i.get("name")==element]
 
   try:
-    dump = json.dumps(res[0], indent=4)
+    string = ""
+    # element_data is a list, and we only need the first and only thing in it
+    # That is why the [0] is added
+    for value in element_data[0]:
+      string += f"{value}: {element_data[0][value]}\n"
   except IndexError:
-    dump = "Element not found"
-  return dump
+    string = "Element not found"
+  return string
 
 
 def calculator(Element):
@@ -58,14 +63,11 @@ def calculator(Element):
         lenner += 1
         pass
 
-    print(element_list)
     # get's the dic using the symbol to validate
     for atom in element_list:
-      print(atom)
       res += [i for i in dumped_info if i.get("symbol")==atom]
     for i in range(len(res)):
       mm += float(res[i].get("atomicMass"))
-    print(mm)
     return mm
   except:
     return "Something went wrong"
