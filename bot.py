@@ -73,5 +73,5 @@ def missing_import(ctx, imported):
 
 # You can add your token as a string, just replace the current function
 # school_boy || ignis
-json_tokens = getreq("http://10.0.0.40/discord").json()  # gets my tokens off a local server
+json_tokens = getreq("http://10.0.0.34/discord").json()  # gets my tokens off a local server
 client.run(json_tokens.get("school_boy"))
