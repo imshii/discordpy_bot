@@ -1,12 +1,11 @@
 from discord.ext import commands
 from urllib import parse
 from random import choice
-from math import floor
+
 
 import requests
-import json
+import string
 import discord
-from datetime import datetime
 
 names = {
   "TESLA": "TSLA",
@@ -82,24 +81,43 @@ class Stock(commands.Cog):
 
     embed = discord.Embed(colour=discord.Colour.teal(), description="**{}, NASQAD**".format(stock.upper()))
     embed.add_field(name="** **", value=
-    f"**Current:** $ {moniezer(last_open)}\n \
-      **Close:** $ {moniezer(close)}\n \
-      **High:** $ {moniezer(high)}\n \
-      **Low:** $ {moniezer(low)}\n \
-      **Volume:** {moniezer(volume)}"
+    f"**Current:** {moniezer(last_open)}\n \
+      **Close:** {moniezer(close)}\n \
+      **High:** {moniezer(high)}\n \
+      **Low:** {moniezer(low)}\n \
+      **Volume:** {volume}"
     )
     embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
     # embed.add_field(name="** **", value="All json info can be found here: {}".format(paste_link), inline=False)
     # working on it xD
     await ctx.channel.send(embed=embed)
 
+  @commands.command()
+  async def crypto(self, ctx, coin: str):
+    embed = discord.Embed(color=discord.Color.teal())
 
+    respData = queryJson("https://api.nomics.com/v1/currencies/ticker?key=b53e1afda0043ca1e0f78bab1edc6997&ids=" +
+                         coin.upper())
+    # it returns a list
+    coinData = respData[0]
+    # get the name of the crypto currency
+    coinName = coinData.get("name")
+    # get the value price
+    price: str = coinData.get("price")
+    embed.add_field(name=coinName, value=price)
+    await ctx.send(embed=embed)
+
+
+def queryJson(url: str) -> dict:
+  return requests.get(url).json()
+    
+  
 def setup(client):
   client.add_cog(Stock(client))
 
 
-def moniezer(money):
-  return (round(float(money) * 100)) / 100
+def moniezer(money) -> str:
+  return "$" + str((round(float(money) * 100)) / 100)
 
 
 """    pastebin_query = "https://pastebin.com/api/api_post.php"

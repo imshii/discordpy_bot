@@ -168,6 +168,10 @@ class Extras(commands.Cog):
   async def yellow(self, ctx):
     await ctx.send("Lol bad colour")
 
+  @commands.command(aliases=["nerds"])
+  async def nerd(self, ctx):
+    await ctx.send(choice(Storage.blizzard_list))
+
 
 def setup(client):
   client.add_cog(Extras(client))
@@ -186,6 +190,10 @@ class Storage:
                 'https://media.discordapp.net/attachments/732740996990894171/785331034023526430/10.png',
                 'https://media.discordapp.net/attachments/732740996990894171/785331249409032212/4.png',
                 'https://media.discordapp.net/attachments/732740996990894171/785331358036656188/12.png']
+  blizzard_list = [
+    "https://media.discordapp.net/attachments/763837055163170856/833703230890180668/Nerds_blizzard.jpg?width=455&height=666",
+    "go study ||nerd||"
+  ]
 
   coins = ['https://user-images.githubusercontent.com/75594425/101301574-3e88a080-3807-11eb-867b-d70868125ff8.png',
            'https://user-images.githubusercontent.com/75594425/101301529-1c8f1e00-3807-11eb-962a-e76f2f81415d.png'
