@@ -58,20 +58,20 @@ def missing_import(ctx, imported):
   ctx.send("Sorry, this command will not work because the host is missing the import: \n {}".format(imported))
 
 
-#  Suppresses errors related to those mentioned, and informing the user what went wrong
-# @client.event
-# async def on_command_error(ctx, error):
-#   if isinstance(error, commands.CommandNotFound):
-#     await ctx.send("Command not found")
-#   elif isinstance(error, commands.MissingPermissions):
-#     await ctx.send("Nope, not happening.")
-#   elif isinstance(error, commands.MissingRequiredArgument):
-#     await ctx.send("ugh, be more specific")
-#   else:
-#     print(error)
+ # Suppresses errors related to those mentioned, and informing the user what went wrong
+@client.event
+async def on_command_error(ctx, error):
+  if isinstance(error, commands.CommandNotFound):
+    await ctx.send("Command not found")
+  elif isinstance(error, commands.MissingPermissions):
+    await ctx.send("Nope, not happening.")
+  elif isinstance(error, commands.MissingRequiredArgument):
+    await ctx.send("ugh, be more specific")
+  else:
+    print(error)
 
 
 # You can add your token as a string, just replace the current function
 # school_boy || ignis
 json_tokens = getreq("http://10.0.0.32/discord").json()  # gets my tokens off a local server
-client.run(json_tokens.get("ignis"))
+client.run(json_tokens.get("school_boy"))

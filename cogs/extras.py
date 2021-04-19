@@ -172,6 +172,10 @@ class Extras(commands.Cog):
   async def nerd(self, ctx):
     await ctx.send(choice(Storage.blizzard_list))
 
+  @commands.command()
+  async def toilet(self, ctx):
+    await ctx.send("wtf were you expecting???")
+
 
 def setup(client):
   client.add_cog(Extras(client))
@@ -195,7 +199,8 @@ class Storage:
     "go study ||nerd||"
   ]
 
-  coins = ['https://user-images.githubusercontent.com/75594425/101301574-3e88a080-3807-11eb-867b-d70868125ff8.png',
+  coins = [
+           'https://user-images.githubusercontent.com/75594425/101301574-3e88a080-3807-11eb-867b-d70868125ff8.png',
            'https://user-images.githubusercontent.com/75594425/101301529-1c8f1e00-3807-11eb-962a-e76f2f81415d.png'
            ]
 
