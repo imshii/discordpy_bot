@@ -63,6 +63,12 @@ def pythonagorean_ab(c, o) -> float:
   return other
 
 
+def hero_formula(a: float, b: float, c: float) -> float:
+  semi_peremeter: float = (a + b + c) / 2
+  area: float = sqrt(semi_peremeter * (semi_peremeter - a) * (semi_peremeter - b) * (semi_peremeter - c))
+  return area
+
+
 def points_lister(points):
   values = points.split()
   x, y = [], []
@@ -113,6 +119,13 @@ class Math(commands.Cog):
     length = sqrt(pow((y2 - y1), 2) + pow((x2 - x1), 2))
     await ctx.send("The distance of the line {0}/{1} to {2}/{3} is {4} units".format(x2, y2, x1, y1, length))
 
+  @commands.command()
+  async def hero(self, ctx, a=None, b=None, c=None):
+    if a is None or b is None or c is None:
+      await ctx.send("input: .hero a b c")
+      return
+    await ctx.send("The area of the triangle is {0}".format(hero_formula(float(a), float(b), float(c))))
+
   @commands.command(aliases=["si"])
   async def slope_intercept(self, ctx, slope):
     slope_intercept = -pow(float(slope), -1)
@@ -121,7 +134,6 @@ class Math(commands.Cog):
   @commands.command(aliases=["point_line", "pl", "p_l"])
   async def dpoint_line(self, ctx, *, equation):
     equation = equation.split()
-
     A = float(equation[0])
     B = float(equation[2])
     C = float(equation[4])
