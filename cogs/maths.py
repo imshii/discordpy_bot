@@ -1,5 +1,6 @@
 from discord.ext import commands
-
+from random import choice
+import math
 
 """
 # SQUARE ROOT
@@ -25,6 +26,20 @@ square_root = temp = 3.25
 
 ### THIS IS REPEATED UNTIL EVERY NUMBER BEFORE THE NINTH DECIMAL IS THE SAME
 """
+
+funny_sentences = [
+  "Thy shall not judge my answer of {}",
+  "You think your smart, but need me to give you this answer: {}",
+  "Never have I ever gotten this answer in my life: {}",
+  "Yea pretty sure you got it wrong, but i'll give you the number anyways: {}",
+  "Just take it and stop bothering me. {}",
+  "This number is sus: {}",
+  "I think the number {} just vented"
+]
+
+
+def getRandomFunnySentence() -> str:
+  return choice(funny_sentences)
 
 
 def sqrt(number) -> float:
@@ -63,10 +78,19 @@ def pythonagorean_ab(c, o) -> float:
   return other
 
 
-def hero_formula(a: float, b: float, c: float) -> float:
+def hero_area_formula(a: float, b: float, c: float) -> float:
   semi_peremeter: float = (a + b + c) / 2
   area: float = sqrt(semi_peremeter * (semi_peremeter - a) * (semi_peremeter - b) * (semi_peremeter - c))
   return area
+
+
+def cosine_line_formula(a: float, b: float, angle: float) -> float:
+  print(pow(a, 2))
+  print(pow(b, 2))
+  print(math.cos(angle))
+  like: float = sqrt(pow(a, 2) + pow(b, 2) - 2 * a * b * math.cos(angle))
+  print(like)
+  return sqrt(pow(a, 2) + pow(b, 2) - 2 * a * b * math.cos(math.radians(angle)))
 
 
 def points_lister(points):
@@ -124,12 +148,32 @@ class Math(commands.Cog):
     if a is None or b is None or c is None:
       await ctx.send("input: .hero a b c")
       return
-    await ctx.send("The area of the triangle is {0}".format(hero_formula(float(a), float(b), float(c))))
+    await ctx.send("The area of the triangle is {0}".format(hero_area_formula(float(a), float(b), float(c))))
+
+  # not broken anymore
+  @commands.command()
+  async def coslaw(self, ctx, a=None, b=None, angle=None):
+    if a is None or b is None or angle is None:
+      await ctx.send("input: .coslaw a b angle")
+      return
+    await ctx.send(getRandomFunnySentence().format(cosine_line_formula(float(a), float(b), float(angle))))
 
   @commands.command(aliases=["si"])
   async def slope_intercept(self, ctx, slope):
     slope_intercept = -pow(float(slope), -1)
     await ctx.send(slope_intercept)
+
+  @commands.command()
+  async def cos(self, ctx, number):
+    await ctx.send(getRandomFunnySentence().format(math.cos(math.radians(float(number)))))
+
+  @commands.command()
+  async def sin(self, ctx, number):
+    await ctx.send(getRandomFunnySentence().format(math.sin(math.radians(float(number)))))
+
+  @commands.command()
+  async def tan(self, ctx, number):
+    await ctx.send(getRandomFunnySentence().format(math.tan(math.radians(float(number)))))
 
   @commands.command(aliases=["point_line", "pl", "p_l"])
   async def dpoint_line(self, ctx, *, equation):
