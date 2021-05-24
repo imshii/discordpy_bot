@@ -7,7 +7,7 @@ import discord
 
 
 # Local server hosting it, you should delete this file if hosting off of your machine
-element_api = "http://10.0.0.40/elements"
+element_api = "http://10.0.0.32/elements"
 
 
 def requester(element):
