@@ -151,6 +151,11 @@ class Extras(commands.Cog):
   async def pog(self, ctx):
     await ctx.send(Storage.poggers_kiss)
 
+  @commands.command(aliases=["play", "pause", "skip", "fs", "join", "clear", "queue"])
+  async def ignoreMusic(self, ctx):
+    pass
+
+
   @commands.command(aliases=["dog", "...", "."])
   async def quokka(self, ctx):
     await ctx.send(choice(Storage.quokka))
