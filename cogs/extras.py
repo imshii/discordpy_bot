@@ -34,46 +34,11 @@ class Extras(commands.Cog):
                    'No permissions invite: https://discord.com/api/oauth2/'
                    'authorize?client_id=785192185796231188&permissions=0&scope=bot```')
 
-  @commands.command()
-  async def strati(self, ctx):
-    await ctx.send(
-      'https://media.discordapp.net/attachments/782103157546287124/'
-      '785596636269117535/egg3.PNG?width=1090&height=683')
-
-  @commands.command()
-  async def stef(self, ctx):
-    await ctx.send('https://media.discordapp.net/attachments/782103157546287124/'
-                   '785171862761373696/image0.jpg?width=263&height=468')
-
-  @commands.command()
-  async def clean(self, ctx):
-    await ctx.send(
-      'https://media.discordapp.net/attachments/760678854334611461/'
-      '771198231219666954/Mr.Clean.PNG?width=400&height=193')
-
-  @commands.command()
-  async def damato(self, ctx):
-    await ctx.send(choice(Storage.damato_list))
-
-  @commands.command()
-  async def kien(self, ctx):
-    await ctx.send(
-      'https://media.discordapp.net/attachments/760678854334611461/'
-      '778794093223870504/ahmad-customer-service_-_Discord_2020-11-18_8_22_51_PM_2.png')
 
   @commands.command()
   async def rockets(self, ctx):
     await ctx.send('https://media.discordapp.net/attachments/760678854334611461/765707585781104672/imageh0.png')
 
-  @commands.command()
-  async def nasa(self, ctx):
-    await ctx.send(
-      'https://media.discordapp.net/attachments/760678854334611461/'
-      '778451995798274048/unknown.png?width=1010&height=701')
-
-  @commands.command()
-  async def gang(self, ctx):
-    await ctx.send('https://media.discordapp.net/attachments/760678854334611461/778722611629654026/unknown.png')
 
   @commands.command()
   async def obama(self, ctx):
@@ -82,24 +47,12 @@ class Extras(commands.Cog):
       'https/media.discordapp.net/attachments/473658772099694612/783903546520371250/bomabomb.gif')
 
   @commands.command()
-  async def teacher(self, ctx):
-    await ctx.send('<@453653348315430944> or <@769007607809572886> **WE NEED HELP OMG PLEASE HELP**')
-
-  @commands.command()
-  async def damiano(self, ctx):
-    await ctx.send('https://tenor.com/view/persongee-morphs-morphing-melting-faces-gif-8217558')
-
-  @commands.command()
   async def pong(self, ctx):
     await ctx.send('Ping! :ping_pong:')
 
   @commands.command(aliases=[".."])
   async def vic(self, ctx):
     await ctx.send(choice(Storage.vic_list))
-
-  @commands.command()
-  async def eight(self, ctx):
-    await ctx.send(choice(Storage.eight_list))
 
   @commands.command(aliases=["pp", "penis"])
   async def size(self, ctx):
@@ -120,10 +73,6 @@ class Extras(commands.Cog):
   async def toss(self, ctx):
     await ctx.send(choice(Storage.coins))
 
-  @commands.command(aliases=["drip"])
-  async def vas(self, ctx):
-    await ctx.send(choice(Storage.vas_list))
-
   @commands.command(aliases=["creator"])
   async def author(self, ctx):
     await ctx.send(Storage.author_ascii)
@@ -143,10 +92,6 @@ class Extras(commands.Cog):
       return
     await ctx.send("You are not worthy of that command! <:thor_hammer:804921376166641714>")
 
-  @commands.command(aliases=["yip", "Yip"])
-  async def workout(self, ctx):
-    await ctx.send(Storage.twerking_stickmen)
-
   @commands.command(aliases=["poggers", "Pog"])
   async def pog(self, ctx):
     await ctx.send(Storage.poggers_kiss)
@@ -154,7 +99,6 @@ class Extras(commands.Cog):
   @commands.command(aliases=["play", "pause", "skip", "fs", "join", "clear", "queue"])
   async def ignoreMusic(self, ctx):
     pass
-
 
   @commands.command(aliases=["dog", "...", "."])
   async def quokka(self, ctx):
@@ -287,5 +231,5 @@ Come un sorriso che sa di felicità
 Felicità
 È una sera a sorpresa la luna accesa e la radio che va
 È… """
-  author_ascii = """Kinda broken atm lol discord is annoying
+  author_ascii = """This was writted by some depressed teenager
   """

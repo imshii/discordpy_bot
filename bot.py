@@ -71,7 +71,7 @@ async def on_command_error(ctx, error):
     print(error)
 
 
-# You can add your token as a string, just replace the current function
+# Implement you own way for the variable: json_tokens to have a string on your bot token
 # school_boy || ignis
-json_tokens = getreq("http://10.0.0.32/discord").json()  # gets my tokens off a local server
+json_tokens = getreq("http://10.0.0.32:8080/discord").json()  # gets my tokens off a local server
 client.run(json_tokens.get("school_boy"))
